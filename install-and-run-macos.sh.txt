@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+echo "🧩 Checking Node.js & npm..."
+if ! command -v node >/dev/null 2>&1; then
+  echo "Node.js not found — installing via nvm (recommended)..."
+  if [ ! -d "$HOME/.nvm" ]; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+    # shellcheck disable=SC1091
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  fi
+  nvm install 20
+  nvm use 20
+fi
+
+echo "📦 Installing dependencies..."
+npm ci || npm install --include=dev
+
+echo "🚀 Running dev server..."
+npm run dev

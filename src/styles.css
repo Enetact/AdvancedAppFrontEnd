@@ -1,0 +1,24 @@
+
+:root{
+  --brand: #0d6efd;
+  --brand-700: #0b5ed7;
+  --bg: #0b1320;
+  --surface: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --radius: .75rem;
+}
+html,body,#root{height:100%;}
+body{background:var(--bg); color:var(--text);}
+a{color:#9cd3ff;}
+.card{background-color:var(--surface); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius);}
+.btn-brand{background:var(--brand); border-color:var(--brand);}
+.btn-brand:hover{background:var(--brand-700); border-color:var(--brand-700);}
+.skeleton{
+  background: linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.18), rgba(255,255,255,.08));
+  background-size:200% 100%;
+  animation: shimmer 1.2s infinite;
+  min-height:160px; border-radius:.5rem;
+}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.footer{border-top:1px solid rgba(255,255,255,.08); color:var(--muted);}
