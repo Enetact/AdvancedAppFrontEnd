@@ -1,7 +1,7 @@
 # Windows 11 setup for Club PWA Prototype (React + Vite + Bootstrap)
 # - Ensures Node >= 18 (via winget or choco)
 # - Installs npm dependencies
-# - Starts Vite dev server
+# - Starts Vite dev server test
 # No icons, no colors, no special characters.
 
 param(
