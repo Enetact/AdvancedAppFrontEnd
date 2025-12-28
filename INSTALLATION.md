@@ -128,20 +128,75 @@ Preview the build locally:
 npm run preview
 ```
 
+Vite will print a URL you can open in your browser.
+
 ---
 
-## 7. Troubleshooting
+## 7. Common Issues & Troubleshooting
 
-### Node version too old
+### 7.1 Node Version Too Old
 
-If Node is below version 18, the setup scripts either update it or ask you to update manually.
+**Symptoms:**
 
-### Dependencies fail to install
+- The setup script warns that Node is too old.
+- `npm install` / `npm run dev` fails with engine or syntax errors.
 
-Delete `node_modules` and optionally `package-lock.json`, then run:
+**Fix:**
+
+- Upgrade Node.js to version 18+.
+- Windows: rerun `.\setup-windows.ps1` (without `-SkipNodeInstall` if you want it to manage Node).
+- macOS: update via Homebrew or rerun `./setup-linux.sh`.
+
+---
+
+### 7.2 Port Already in Use
+
+If `npm run dev` fails because the port is already in use:
+
+- Close any other dev server using that port.
+- Or run:
 
 ```bash
-npm install --include=dev
+npm run dev -- --port 5174
 ```
 
-After that, start the dev server with `npm run dev`.
+and open the new port in your browser.
+
+---
+
+### 7.3 Dependency Installation Failures
+
+If `npm install` or `npm ci` fails:
+
+1. Remove `node_modules` and (optionally) `package-lock.json`.
+2. Run:
+
+   ```bash
+   npm install --include=dev
+   ```
+
+On Windows, you can also rerun `.\setup-windows.ps1`.  
+On macOS, rerun `./setup-linux.sh`.
+
+---
+
+## 8. Quick Start Summary
+
+### Windows
+
+```powershell
+git clone https://github.com/Enetact/AdvancedAppFrontEnd.git
+cd AdvancedAppFrontEnd
+.\setup-windows.ps1
+```
+
+### macOS
+
+```bash
+git clone https://github.com/Enetact/AdvancedAppFrontEnd.git
+cd AdvancedAppFrontEnd
+chmod +x setup-linux.sh
+./setup-linux.sh
+```
+
+After the dev server starts, open the shown localhost URL in your browser to use the app.
