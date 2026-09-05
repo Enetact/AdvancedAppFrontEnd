@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.784122">
+  <PropertyGroup>
+    <StartupCommand>npm run dev</StartupCommand>
+    <JavaScriptTestRoot>src\</JavaScriptTestRoot>
+    <JavaScriptTestFramework>Jest</JavaScriptTestFramework>
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <BuildCommand>npm run build</BuildCommand>
+    <CleanCommand>npm run clean</CleanCommand>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\pages\" />
+    <Folder Include="public\" />
+    <Folder Include="docs\" />
+    <Folder Include="dist\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="package.json" />
+    <Content Include="package-lock.json" />
+    <Content Include="vite.config.js" />
+    <Content Include="index.html" />
+    <Content Include="README.md" />
+    <Content Include="INSTALLATION.md" />
+    <Content Include="CHANGELOG.md" />
+    <Content Include="PROMPT-ENGINEERING.md" />
+    <Content Include=".gitignore" />
+    <Content Include=".gitattributes" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="src\**\*.jsx" />
+    <Content Include="src\**\*.js" />
+    <Content Include="src\**\*.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="public\**\*" />
+  </ItemGroup>
+</Project>
